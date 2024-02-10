@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kan du returnere?</title>
+</head>
+<body>
+    <div id="divText"></div>
+    <div class="btns">
+    <button onclick="myBtns('lightpink', 'Heisann', 200, 'solid','red')">Trykk 1</button>
+    <button onclick="myBtns('lightgreen', 'Hoppsann', 50, 'dotted','green')">Trykk 2</button>
+    <button onclick="myBtns('lightblue', 'Du er flottsann', 100, 'double','blue')">Trykk 3</button>
+    </div>
+    <script>
+        function myBtns(color, text, fontSize, border, colorT){
+        document.getElementById('divText').innerHTML=`
+        <div ${createStyle(color, fontSize, border, colorT)}>${text}</div>
+        `;
+        }
+
+        function createStyle(color, fontSize, border, colorT){
+        return `style="${createBackground(color)} ${createFontsize(fontSize)} ${createBorder(border)}
+        ${textColor(colorT)}"`;
+        }
+
+        function createBackground(color){
+        return `background-color: ${color};`;
+        }
+
+        function createFontsize(fontSize){
+        return `font-size: ${fontSize}px;`;
+        }
+
+        function createBorder(border){
+        return `border: ${border};`;
+        }
+        function textColor(colorT){
+        return`color: ${colorT};`;
+        }
+
+    </script>
+    <style>
+        body {
+            margin:50px;
+        }
+        #divText {
+            display: flex;
+            justify-content: center;
+        }
+        button {
+            cursor: pointer;
+        }
+        .btns {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin-top: 200px;
+        }
+    </style>
+    
+</body>
+</html>
